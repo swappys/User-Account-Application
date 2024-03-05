@@ -1,4 +1,3 @@
-// import jwt from 'jsonwebtoken';
 const jwt = require('jsonwebtoken');
 const { userUpdate, registerUser, loginUser, getUsers, deleteaUser, refreshTokenGenerator, logout} = require('../services/userService');
 
@@ -109,9 +108,3 @@ exports.logoutUser = async(req, res)=>{
     }
 };
 
-function generateAccessToken(user){
-    const token=jwt.sign({_id: user._id},process.env.JWT_SECRET,{
-        expiresIn: '30s' 
-     });
-     return token;
-}

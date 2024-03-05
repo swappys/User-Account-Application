@@ -39,12 +39,12 @@ describe('User Management Functions', () => {
     })
         
     });
-    
+
     describe('deleteaUser function', () => {
         it('should delete user successfully', async () => {
             // Mock deleted user data
             const userId = '123';
-            const mockDeletedUser = { _id: userId, firstName: 'John' };
+            const mockDeletedUser = { _id: userId, firstName: 'swapnil' };
 
             // Mock User.findByIdAndDelete to return the deleted user
             const User = require('./models/user');
@@ -74,7 +74,7 @@ describe('User Management Functions', () => {
     describe('getUsers function', () => {
         it('should return users successfully', async () => {
             // Mock users data
-            const mockUsers = [{ _id: '1', firstName: 'John' }, { _id: '2', firstName: 'Jane' }];
+            const mockUsers = [{ _id: '1', firstName: 'swapnil' }, { _id: '2', firstName: 'Sahil' }];
 
             // Mock User.find to return the users
             const User = require('./models/user');

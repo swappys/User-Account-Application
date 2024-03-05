@@ -1,5 +1,4 @@
 require("dotenv").config();
-// import jwt from 'jsonwebtoken';
 const jwt = require('jsonwebtoken');
 
 //authentication middleware to check if the token is valid and correct

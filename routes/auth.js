@@ -1,10 +1,8 @@
-// import express from 'express'
 const express = require('express');
 const authenticateToken = require('../middleware/authenticateToken');
 const router = express.Router();
 
 //controllers
-// import {register, login, getAllUsers, updateUser, deleteUser, refreshToken, logoutUser} from '../controllers/auth';
 const { register, login, getAllUsers, updateUser, deleteUser, refreshToken, logoutUser } = require('../controllers/auth');
 
 
