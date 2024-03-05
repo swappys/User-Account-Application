@@ -78,6 +78,7 @@ exports.loginUser = async (email, password) => {
         const daysDifference = Math.floor(dateDifference / (1000 * 60 * 60 * 24));
 
         if (daysDifference > 30) {
+            //If the password was set before 30 days, give a response to the client to change the password and reject the login.
             return { success: false, message: "Please consider changing your password to access the system" };
         }
 
