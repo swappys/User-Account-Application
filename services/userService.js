@@ -24,7 +24,6 @@ exports.userUpdate = async (userId, updateBody) => {
 };
 
 exports.registerUser = async (userData) => {
-    console.log(userData);
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const { firstName, lastName, password, email } = userData;
 
