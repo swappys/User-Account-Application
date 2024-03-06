@@ -134,35 +134,30 @@ exports.deleteaUser = async (userId) => {
     }
 };
 
-exports.refreshTokenGenerator = (refreshToken) => {
-    return new Promise((resolve, reject) => {
-        
+exports.refreshTokenGenerator = async (refreshToken) => {
+    try {
         if (refreshToken == null) {
-            reject(401);
+            throw 401;
         }
         if (!refreshTokens.includes(refreshToken)) {
-            reject(403);
+            throw 403;
         }
-        jwt.verify(refreshToken, process.env.REFRESH_SECRET, (err, user) => {
-            if (err) {
-                reject(403);
-            }
-            const token = generateAccessToken(user);
-            resolve(token);
-        });
-    });
+        const user = await jwt.verify(refreshToken, process.env.REFRESH_SECRET);
+        const token = generateAccessToken(user);
+        return token;
+    } catch (error) {
+        throw error;
+    }
 };
 
 exports.logout = (tokenToRemove) => {
-    return new Promise((resolve, reject) => {
-        try {
-            if(!refreshTokens.includes(tokenToRemove))reject(403);
-            refreshTokens = refreshTokens.filter(token => token !== tokenToRemove);
-            resolve(200);
-        } catch (error) {
-            reject(error);
-        }
-    });
+    try {
+        if (!refreshTokens.includes(tokenToRemove)) throw 403;
+        refreshTokens = refreshTokens.filter(token => token !== tokenToRemove);
+        return 200;
+    } catch (error) {
+        throw error;
+    }
 };
 
 function generateAccessToken(user){
