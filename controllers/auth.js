@@ -20,7 +20,6 @@ exports.login = async(req, res)=>{
     try {
         const { email, password } = req.body;
         const result = await loginUser(email, password);
-        console.log(result);
         if (result.success) {
             return res.json(result);
         } else {
