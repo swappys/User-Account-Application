@@ -24,7 +24,7 @@ exports.login = async(req, res)=>{
         if (result.success) {
             return res.json(result);
         } else {
-            return res.status(400).send(result.message);
+            return res.status(401).send(result.message);
         }
     } catch (err) {
         console.error("ERROR IN LOGGING IN", err);
