@@ -57,7 +57,7 @@ paths:
             type: array
             items:
               $ref: "#/definitions/UserLoginResponse"
-        400:
+        401:
           description: User with that email was not found || Wrong password || Please consider changing your password to access the system
         500:
           description: Internal Server Error
